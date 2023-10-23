@@ -20,9 +20,9 @@ function App() {
     conditionText:"",
     icon:""
   });
-    const getWeather =(e:any) => {
+    const getWeather =(e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        fetch("http://api.weatherapi.com/v1/current.json?key=9f07072fb2644ee4927151038230210&q=London&aqi=no").then(res =>res.json()).then(data => {
+        fetch(`http://api.weatherapi.com/v1/current.json?key=9f07072fb2644ee4927151038230210&q=${city}&aqi=no`).then(res =>res.json()).then(data => {
           setResults({
             country: data.location.country,
             cityName:data.location.name ,
